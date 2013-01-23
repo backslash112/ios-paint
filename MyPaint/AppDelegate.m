@@ -7,8 +7,15 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-  [self.window addSubview:[[CanvasView alloc] initWithFrame:self.window.frame]];
+
+  CanvasView *canvasView = [[CanvasView alloc] initWithFrame:self.window.frame];
+  Stroke *stroke = [[Stroke alloc] init];
+  stroke.points = @[[NSValue valueWithCGPoint:CGPointMake(10, 10)],
+                    [NSValue valueWithCGPoint:CGPointMake(100, 100)]];
+  stroke.color = [UIColor blueColor];
+  stroke.width = 10;
+  canvasView.strokes = @[stroke];
+  [self.window addSubview:canvasView];
   [self.window makeKeyAndVisible];
   
   return YES;

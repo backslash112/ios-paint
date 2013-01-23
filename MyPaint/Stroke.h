@@ -5,6 +5,6 @@
 
 @property (strong, nonatomic) NSArray *points;
 @property (strong, nonatomic) UIColor *color;
-@property (assign, nonatomic) CGFloat *width;
+@property (assign, nonatomic) CGFloat width;
 
 @end
