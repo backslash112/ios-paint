@@ -4,7 +4,6 @@
 
 @interface CanvasViewController : UIViewController
 
-@property (strong, nonatomic) NSArray *strokes;
-@property (readonly, nonatomic) CanvasView *canvasView;
+@property (strong, nonatomic) CanvasView *view;
 
 @end

@@ -9,12 +9,7 @@
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
   CanvasViewController *cvc = [[CanvasViewController alloc] init];
-  Stroke *stroke = [[Stroke alloc] init];
-  stroke.points = @[[NSValue valueWithCGPoint:CGPointMake(10, 10)],
-                    [NSValue valueWithCGPoint:CGPointMake(100, 100)]];
-  stroke.color = [UIColor blueColor];
-  stroke.width = 10;
-  cvc.strokes = @[stroke];
+
   [self.window setRootViewController:cvc];
   [self.window makeKeyAndVisible];
   

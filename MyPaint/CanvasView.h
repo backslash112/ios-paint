@@ -4,6 +4,6 @@
 
 @interface CanvasView : UIView
 
-@property (strong, nonatomic) NSArray *strokes;
+@property (weak, nonatomic) NSArray *strokes;
 
 @end
