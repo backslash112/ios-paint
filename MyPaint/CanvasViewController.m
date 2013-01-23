@@ -4,7 +4,7 @@
 @interface CanvasViewController ()
 
 @property (strong, nonatomic) NSMutableArray *strokes;
-@property (strong, nonatomic) Stroke *activeStroke;
+@property (readonly, nonatomic) Stroke *activeStroke;
 
 @end
 
@@ -32,7 +32,10 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  self.activeStroke = [[Stroke alloc] init];
+  Stroke *newStroke = [[Stroke alloc] init];
+  
+  [self.strokes addObject:newStroke];
+  
   self.activeStroke.color = [UIColor blueColor];
   self.activeStroke.width = 10;
 
@@ -44,17 +47,17 @@
 {
   CGPoint newPoint = [[touches anyObject] locationInView:self.view];
   [self.activeStroke.points addObject:[NSValue valueWithCGPoint:newPoint]];
+  [self.view setNeedsDisplay];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  [self.strokes addObject:self.activeStroke];
   [self.view setNeedsDisplay];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-
+  [self.view setNeedsDisplay];
 }
 
 #pragma mark - Properties
@@ -63,6 +66,11 @@
 {
   _strokes = strokes;
   self.view.strokes = _strokes;
+}
+
+- (Stroke *)activeStroke
+{
+  return [self.strokes lastObject];
 }
 
 @end
