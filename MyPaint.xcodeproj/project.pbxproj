@@ -16,6 +16,7 @@
 		DA7ADA6C16AFB510007CBD5D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA6B16AFB510007CBD5D /* Default.png */; };
 		DA7ADA6E16AFB510007CBD5D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA6D16AFB510007CBD5D /* Default@2x.png */; };
 		DA7ADA7016AFB510007CBD5D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA6F16AFB510007CBD5D /* Default-568h@2x.png */; };
+		DA7ADA7816AFB7B0007CBD5D /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		DA7ADA6B16AFB510007CBD5D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		DA7ADA6D16AFB510007CBD5D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		DA7ADA6F16AFB510007CBD5D /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		DA7ADA7616AFB7B0007CBD5D /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,8 @@
 				DA7ADA6816AFB510007CBD5D /* AppDelegate.h */,
 				DA7ADA6916AFB510007CBD5D /* AppDelegate.m */,
 				DA7ADA6016AFB510007CBD5D /* Supporting Files */,
+				DA7ADA7616AFB7B0007CBD5D /* CanvasView.h */,
+				DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */,
 			);
 			path = MyPaint;
 			sourceTree = "<group>";
@@ -166,6 +171,7 @@
 			files = (
 				DA7ADA6616AFB510007CBD5D /* main.m in Sources */,
 				DA7ADA6A16AFB510007CBD5D /* AppDelegate.m in Sources */,
+				DA7ADA7816AFB7B0007CBD5D /* CanvasView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +247,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPaint/MyPaint-Prefix.pch";
 				INFOPLIST_FILE = "MyPaint/MyPaint-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -252,6 +259,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPaint/MyPaint-Prefix.pch";
 				INFOPLIST_FILE = "MyPaint/MyPaint-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

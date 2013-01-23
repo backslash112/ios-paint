@@ -1,22 +1,17 @@
-//
-//  AppDelegate.m
-//  MyPaint
-//
-//  Created by Pavel Logvinov on 23.01.13.
-//  Copyright (c) 2013 Pavel Logvinov. All rights reserved.
-//
-
 #import "AppDelegate.h"
+#import "CanvasView.h"
+
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    return YES;
+  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+  [self.window addSubview:[[CanvasView alloc] initWithFrame:self.window.frame]];
+  [self.window makeKeyAndVisible];
+  
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
