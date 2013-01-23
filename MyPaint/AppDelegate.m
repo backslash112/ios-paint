@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "CanvasView.h"
+#import "CanvasViewController.h"
 
 
 @implementation AppDelegate
@@ -8,14 +8,14 @@
 {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-  CanvasView *canvasView = [[CanvasView alloc] initWithFrame:self.window.frame];
+  CanvasViewController *cvc = [[CanvasViewController alloc] init];
   Stroke *stroke = [[Stroke alloc] init];
   stroke.points = @[[NSValue valueWithCGPoint:CGPointMake(10, 10)],
                     [NSValue valueWithCGPoint:CGPointMake(100, 100)]];
   stroke.color = [UIColor blueColor];
   stroke.width = 10;
-  canvasView.strokes = @[stroke];
-  [self.window addSubview:canvasView];
+  cvc.strokes = @[stroke];
+  [self.window setRootViewController:cvc];
   [self.window makeKeyAndVisible];
   
   return YES;

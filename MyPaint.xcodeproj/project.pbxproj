@@ -18,6 +18,7 @@
 		DA7ADA7016AFB510007CBD5D /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA6F16AFB510007CBD5D /* Default-568h@2x.png */; };
 		DA7ADA7816AFB7B0007CBD5D /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */; };
 		DA7ADA7B16AFBB18007CBD5D /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7A16AFBB18007CBD5D /* Stroke.m */; };
+		DA7ADA7E16AFC7A1007CBD5D /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		DA7ADA7916AFBB18007CBD5D /* Stroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stroke.h; sourceTree = "<group>"; };
 		DA7ADA7A16AFBB18007CBD5D /* Stroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stroke.m; sourceTree = "<group>"; };
+		DA7ADA7C16AFC7A1007CBD5D /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
+		DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,8 @@
 				DA7ADA6016AFB510007CBD5D /* Supporting Files */,
 				DA7ADA6816AFB510007CBD5D /* AppDelegate.h */,
 				DA7ADA6916AFB510007CBD5D /* AppDelegate.m */,
+				DA7ADA7C16AFC7A1007CBD5D /* CanvasViewController.h */,
+				DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */,
 				DA7ADA7616AFB7B0007CBD5D /* CanvasView.h */,
 				DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */,
 				DA7ADA7916AFBB18007CBD5D /* Stroke.h */,
@@ -178,6 +183,7 @@
 				DA7ADA6A16AFB510007CBD5D /* AppDelegate.m in Sources */,
 				DA7ADA7816AFB7B0007CBD5D /* CanvasView.m in Sources */,
 				DA7ADA7B16AFBB18007CBD5D /* Stroke.m in Sources */,
+				DA7ADA7E16AFC7A1007CBD5D /* CanvasViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
