@@ -1,12 +1,5 @@
-//
-//  CanvasView.m
-//  MyPaint
-//
-//  Created by Pavel Logvinov on 23.01.13.
-//  Copyright (c) 2013 Pavel Logvinov. All rights reserved.
-//
-
 #import "CanvasView.h"
+
 
 @implementation CanvasView
 
@@ -19,13 +12,19 @@
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
+  CGContextRef context = UIGraphicsGetCurrentContext();
+
+  CGContextSetStrokeColorWithColor(context, [[UIColor blueColor] CGColor]);
+  CGContextSetLineCap(context, kCGLineCapRound);
+  CGContextSetLineWidth(context, 15);
+
+  CGContextMoveToPoint(context, 0, 0);
+  CGContextAddLineToPoint(context, 10, 10);
+  CGContextAddLineToPoint(context, 100, 100);
+  CGContextStrokePath(context);
 }
-*/
 
 @end
