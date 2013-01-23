@@ -3,6 +3,15 @@
 
 @implementation CanvasView
 
+- (id)initWithFrame:(CGRect)frame
+{
+  self = [super initWithFrame:frame];
+  if (self) {
+    self.backgroundColor = [UIColor whiteColor];
+  }
+  return self;
+}
+
 - (void)dealloc
 {
   self.strokes = nil;

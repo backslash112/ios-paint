@@ -19,6 +19,11 @@
 		DA7ADA7816AFB7B0007CBD5D /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */; };
 		DA7ADA7B16AFBB18007CBD5D /* Stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7A16AFBB18007CBD5D /* Stroke.m */; };
 		DA7ADA7E16AFC7A1007CBD5D /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */; };
+		DA7ADA8716AFE0B3007CBD5D /* EditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA8516AFE0B3007CBD5D /* EditorViewController.m */; };
+		DA7ADA8816AFE0B3007CBD5D /* EditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */; };
+		DA7ADA8B16AFF39F007CBD5D /* color-wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA8A16AFF39F007CBD5D /* color-wheel.png */; };
+		DA7ADA9316AFF4A6007CBD5D /* ColorPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA9116AFF4A5007CBD5D /* ColorPickerViewController.m */; };
+		DA7ADA9416AFF4A6007CBD5D /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA9216AFF4A5007CBD5D /* ColorPickerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +46,13 @@
 		DA7ADA7A16AFBB18007CBD5D /* Stroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stroke.m; sourceTree = "<group>"; };
 		DA7ADA7C16AFC7A1007CBD5D /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
 		DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
+		DA7ADA8416AFE0B3007CBD5D /* EditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorViewController.h; sourceTree = "<group>"; };
+		DA7ADA8516AFE0B3007CBD5D /* EditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorViewController.m; sourceTree = "<group>"; };
+		DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditorViewController.xib; sourceTree = "<group>"; };
+		DA7ADA8A16AFF39F007CBD5D /* color-wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-wheel.png"; sourceTree = "<group>"; };
+		DA7ADA9016AFF4A5007CBD5D /* ColorPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerViewController.h; sourceTree = "<group>"; };
+		DA7ADA9116AFF4A5007CBD5D /* ColorPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerViewController.m; sourceTree = "<group>"; };
+		DA7ADA9216AFF4A5007CBD5D /* ColorPickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +99,7 @@
 		DA7ADA5F16AFB510007CBD5D /* MyPaint */ = {
 			isa = PBXGroup;
 			children = (
+				DA7ADA8916AFF383007CBD5D /* Resources */,
 				DA7ADA6016AFB510007CBD5D /* Supporting Files */,
 				DA7ADA6816AFB510007CBD5D /* AppDelegate.h */,
 				DA7ADA6916AFB510007CBD5D /* AppDelegate.m */,
@@ -96,6 +109,12 @@
 				DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */,
 				DA7ADA7916AFBB18007CBD5D /* Stroke.h */,
 				DA7ADA7A16AFBB18007CBD5D /* Stroke.m */,
+				DA7ADA8416AFE0B3007CBD5D /* EditorViewController.h */,
+				DA7ADA8516AFE0B3007CBD5D /* EditorViewController.m */,
+				DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */,
+				DA7ADA9016AFF4A5007CBD5D /* ColorPickerViewController.h */,
+				DA7ADA9116AFF4A5007CBD5D /* ColorPickerViewController.m */,
+				DA7ADA9216AFF4A5007CBD5D /* ColorPickerViewController.xib */,
 			);
 			path = MyPaint;
 			sourceTree = "<group>";
@@ -112,6 +131,14 @@
 				DA7ADA6F16AFB510007CBD5D /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA7ADA8916AFF383007CBD5D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA7ADA8A16AFF39F007CBD5D /* color-wheel.png */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +196,9 @@
 				DA7ADA6C16AFB510007CBD5D /* Default.png in Resources */,
 				DA7ADA6E16AFB510007CBD5D /* Default@2x.png in Resources */,
 				DA7ADA7016AFB510007CBD5D /* Default-568h@2x.png in Resources */,
+				DA7ADA8816AFE0B3007CBD5D /* EditorViewController.xib in Resources */,
+				DA7ADA8B16AFF39F007CBD5D /* color-wheel.png in Resources */,
+				DA7ADA9416AFF4A6007CBD5D /* ColorPickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +214,8 @@
 				DA7ADA7816AFB7B0007CBD5D /* CanvasView.m in Sources */,
 				DA7ADA7B16AFBB18007CBD5D /* Stroke.m in Sources */,
 				DA7ADA7E16AFC7A1007CBD5D /* CanvasViewController.m in Sources */,
+				DA7ADA8716AFE0B3007CBD5D /* EditorViewController.m in Sources */,
+				DA7ADA9316AFF4A6007CBD5D /* ColorPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

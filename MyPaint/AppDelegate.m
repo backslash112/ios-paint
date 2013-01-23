@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "CanvasViewController.h"
+#import "EditorViewController.h"
 
 
 @implementation AppDelegate
@@ -8,7 +8,7 @@
 {
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-  CanvasViewController *cvc = [[CanvasViewController alloc] init];
+  EditorViewController *cvc = [[EditorViewController alloc] init];
 
   [self.window setRootViewController:cvc];
   [self.window makeKeyAndVisible];
