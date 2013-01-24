@@ -35,6 +35,8 @@
   [self addChildViewController:self.canvasViewController];
   [self.view insertSubview:self.canvasViewController.view belowSubview:self.toolbar];
   self.canvasViewController.view.frame = self.view.frame;
+
+  [self selectPen];
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,15 +54,33 @@
                                                           animated:YES];
 }
 
-- (IBAction)pencilButtonTapped:(id)sender {
-  self.canvasViewController.strokeWidth = 1;
+- (IBAction)pencilButtonTapped:(id)sender
+{
+  [self selectPen];
 }
 
 - (IBAction)rollerButtonTapped:(id)sender {
-  self.canvasViewController.strokeWidth = 10;
+  [self selectRoller];
 }
 
 - (IBAction)eraserButtonTapped:(id)sender {
+  [self selectEraser];
+}
+
+#pragma mark - Tool presets
+
+- (void)selectPen
+{
+  self.canvasViewController.strokeWidth = 1;
+}
+
+- (void)selectRoller
+{
+  self.canvasViewController.strokeWidth = 10;
+}
+
+- (void)selectEraser
+{
   self.canvasViewController.strokeColor = [UIColor whiteColor];
   self.canvasViewController.strokeWidth = 10;
 }
