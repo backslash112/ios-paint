@@ -59,12 +59,24 @@
   [self selectPen];
 }
 
-- (IBAction)rollerButtonTapped:(id)sender {
+- (IBAction)rollerButtonTapped:(id)sender
+{
   [self selectRoller];
 }
 
-- (IBAction)eraserButtonTapped:(id)sender {
+- (IBAction)eraserButtonTapped:(id)sender
+{
   [self selectEraser];
+}
+
+- (IBAction)trashButtonTapped:(id)sender
+{
+  UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Warning"
+                                                       message:@"Are you sure you want to start over?"
+                                                      delegate:self
+                                             cancelButtonTitle:@"No"
+                                             otherButtonTitles:@"Yes", nil];
+  [errorAlert show];
 }
 
 #pragma mark - Tool presets
@@ -82,7 +94,7 @@
 - (void)selectEraser
 {
   self.canvasViewController.strokeColor = [UIColor whiteColor];
-  self.canvasViewController.strokeWidth = 10;
+  self.canvasViewController.strokeWidth = 20;
 }
 
 #pragma mark - UIPopoverControllerDelegate
@@ -91,6 +103,17 @@
 {
   // Don't need color picker anymore, so release memory
   self.colorPickerPopupController = nil;
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  enum { kNoButtonIndex, kYesButtonIndex };
+
+  if (buttonIndex == kYesButtonIndex) {
+    // TODO: Implement clear screen
+  }
 }
 
 #pragma mark - ColorPickerDelegate
