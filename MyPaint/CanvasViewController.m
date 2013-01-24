@@ -3,13 +3,6 @@
 #import "PaintingRenderer.h"
 
 
-@interface CanvasViewController ()
-
-@property (assign, nonatomic) NSInteger prerenderedStrokesCount;
-
-@end
-
-
 @implementation CanvasViewController
 
 @dynamic view;
@@ -23,7 +16,6 @@
     self.strokeWidth = 10.0f;
     
     self.painting = [[Painting alloc] init];
-    self.prerenderedStrokesCount = 0;
   }
   return self;
 }
@@ -99,6 +91,8 @@
   if ([self shouldPrerender]) {
     [self prerender];
   }
+
+  [self.view setNeedsDisplay];
 }
 
 - (void)moveActiveStrokeToPainting
@@ -139,13 +133,13 @@
 
 - (BOOL)shouldPrerender
 {
-  NSInteger strokesThatShouldBePrerenderedButCurrentlyNotCount =
-      [self.painting.strokes count] - self.prerenderedStrokesCount - [self undoableStrokesCount];
-  return strokesThatShouldBePrerenderedButCurrentlyNotCount >= [self minStrokesCountToPrerenderInOnePass];
+  return [self.painting.strokes count] - [self undoableStrokesCount] >= [self minStrokesCountToPrerenderInOnePass];
 }
 
 - (void)prerender
 {
+  NSLog(@"Prerendering...");
+  
   UIGraphicsBeginImageContext(self.view.frame.size);
 
   [self fixContextOrientation];
@@ -159,7 +153,6 @@
 
   self.painting.prerenderedImage = prerenderedImage;
   [self.painting removeFirstStrokesCount:strokesToPrerenderCount];
-  self.prerenderedStrokesCount = strokesToPrerenderCount;
 }
 
 - (void)fixContextOrientation

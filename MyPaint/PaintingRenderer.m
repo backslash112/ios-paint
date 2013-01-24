@@ -5,7 +5,9 @@
 
 + (void)drawPainting:(Painting *)painting count:(NSInteger)count
 {
-  [self drawPrerenderedImage:painting.prerenderedImage];
+  if (painting.prerenderedImage) {
+    [self drawPrerenderedImage:painting.prerenderedImage];
+  }
   
   if ([painting.strokes count] > 0) {
     NSInteger lastStrokeToDrawIndex = MIN([painting.strokes count], count);
@@ -18,9 +20,7 @@
 
 + (void)drawPainting:(Painting *)painting
 {
-  if ([painting.strokes count] > 0) {
-    [self drawPainting:painting count:[painting.strokes count]];
-  }
+  [self drawPainting:painting count:[painting.strokes count]];
 }
 
 + (void)drawStroke:(Stroke *)stroke
