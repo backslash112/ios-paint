@@ -21,8 +21,7 @@
 		DA7ADA7E16AFC7A1007CBD5D /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */; };
 		DA7ADA8716AFE0B3007CBD5D /* EditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADA8516AFE0B3007CBD5D /* EditorViewController.m */; };
 		DA7ADA8816AFE0B3007CBD5D /* EditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */; };
-		DA7ADA8B16AFF39F007CBD5D /* color-wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA8A16AFF39F007CBD5D /* color-wheel.png */; };
-		DA7ADAAE16B0F3D7007CBD5D /* colorWheel1.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAAD16B0F3D7007CBD5D /* colorWheel1.png */; };
+		DA7ADAAE16B0F3D7007CBD5D /* color-wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAAD16B0F3D7007CBD5D /* color-wheel.png */; };
 		DA7ADAB116B10C3D007CBD5D /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +48,7 @@
 		DA7ADA8416AFE0B3007CBD5D /* EditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorViewController.h; sourceTree = "<group>"; };
 		DA7ADA8516AFE0B3007CBD5D /* EditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorViewController.m; sourceTree = "<group>"; };
 		DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditorViewController.xib; sourceTree = "<group>"; };
-		DA7ADA8A16AFF39F007CBD5D /* color-wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-wheel.png"; sourceTree = "<group>"; };
-		DA7ADAAD16B0F3D7007CBD5D /* colorWheel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorWheel1.png; sourceTree = "<group>"; };
+		DA7ADAAD16B0F3D7007CBD5D /* color-wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-wheel.png"; sourceTree = "<group>"; };
 		DA7ADAAF16B10C3D007CBD5D /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,8 +133,7 @@
 		DA7ADA8916AFF383007CBD5D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DA7ADAAD16B0F3D7007CBD5D /* colorWheel1.png */,
-				DA7ADA8A16AFF39F007CBD5D /* color-wheel.png */,
+				DA7ADAAD16B0F3D7007CBD5D /* color-wheel.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -197,8 +194,7 @@
 				DA7ADA6E16AFB510007CBD5D /* Default@2x.png in Resources */,
 				DA7ADA7016AFB510007CBD5D /* Default-568h@2x.png in Resources */,
 				DA7ADA8816AFE0B3007CBD5D /* EditorViewController.xib in Resources */,
-				DA7ADA8B16AFF39F007CBD5D /* color-wheel.png in Resources */,
-				DA7ADAAE16B0F3D7007CBD5D /* colorWheel1.png in Resources */,
+				DA7ADAAE16B0F3D7007CBD5D /* color-wheel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

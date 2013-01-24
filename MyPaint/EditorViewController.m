@@ -1,7 +1,5 @@
 #import "EditorViewController.h"
 #import "CanvasViewController.h"
-#import "ColorPickerViewController.h"
-#import "ColorPicker.h"
 
 
 @interface EditorViewController ()
@@ -60,20 +58,27 @@
   self.colorPickerPopupController = nil;
 }
 
+#pragma mark - ColorPickerDelegate
+
+- (void)colorPickerDidChangeColor:(ColorPicker *)colorPicker
+{
+  self.canvasViewController.strokeColor = colorPicker.color;
+}
+
 #pragma mark - Properties
 
 - (UIPopoverController *)colorPickerPopupController
 {
   if (_colorPickerPopupController == nil) {
-    //ColorPickerViewController *colorPickerViewController = [[ColorPickerViewController alloc] init];
+    ColorPicker *colorPicker = [[ColorPicker alloc] init];
+    colorPicker.delegate = self;
     
-    ColorPicker *cp = [[ColorPicker alloc] initWithFrame:CGRectMake(0, 0, 300, 340)];
-    UIViewController *vc = [[UIViewController alloc] init];
-    [vc setView:cp];
+    UIViewController *colorPickerViewController = [[UIViewController alloc] init];
+    [colorPickerViewController setView:colorPicker];
 
-    _colorPickerPopupController = [[UIPopoverController alloc] initWithContentViewController:vc];
+    _colorPickerPopupController = [[UIPopoverController alloc] initWithContentViewController:colorPickerViewController];
     _colorPickerPopupController.delegate = self;
-    _colorPickerPopupController.popoverContentSize = cp.frame.size;
+    _colorPickerPopupController.popoverContentSize = colorPicker.frame.size;
   }
 
   return _colorPickerPopupController;

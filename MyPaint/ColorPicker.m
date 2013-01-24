@@ -10,9 +10,9 @@
 
 @implementation ColorPicker
 
-- (id)initWithFrame:(CGRect)frame
+- (id)init
 {
-  self = [super initWithFrame:frame];
+  self = [super initWithFrame:CGRectMake(0, 0, 300, 340)];
   if (self) {
     self.backgroundColor = [UIColor whiteColor];
   }
@@ -53,7 +53,7 @@
 {
   CGPoint touchPoint = [touch locationInView:self];
   self.color = [self getPixelColorAtLocation:touchPoint];
-  self.backgroundColor = self.color;
+  [self.delegate colorPickerDidChangeColor:self];
 }
 
 #pragma mark - Properties
@@ -82,7 +82,7 @@
 
 - (UIImage *)colorWheelImage
 {
-  return [UIImage imageNamed:@"colorWheel1.png"];
+  return [UIImage imageNamed:@"color-wheel.png"];
 }
 
 #pragma mark - Color picking
