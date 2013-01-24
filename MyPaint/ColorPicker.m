@@ -12,9 +12,9 @@
 
 - (id)init
 {
-  self = [super initWithFrame:CGRectMake(0, 0, 300, 340)];
+  self = [super initWithFrame:[self prefferedFrame]];
   if (self) {
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = [self defaultBackgroundColor];
   }
   
   return self;
@@ -83,6 +83,20 @@
 - (UIImage *)colorWheelImage
 {
   return [UIImage imageNamed:@"color-wheel.png"];
+}
+
+- (CGRect)prefferedFrame
+{
+  return (CGRect){
+    .origin = CGPointMake(0.0f, 0.0f),
+    .size = [[self colorWheelImage] size]
+  };
+}
+
+- (UIColor *)defaultBackgroundColor
+{
+  // To fit popover border nicely
+  return [UIColor colorWithRed:12 green:20 blue:41 alpha:0.2];
 }
 
 #pragma mark - Color picking
