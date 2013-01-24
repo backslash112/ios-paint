@@ -82,7 +82,7 @@
 
 - (void)continueStrokeWithNextPoint:(CGPoint)nextPoint
 {
-  if ([self.view.activeStroke.points count] >= [self minPointsInStrokeCountToTriggerPrerender]) {
+  if ([self shouldSplitActiveStroke]) {
     [self splitActiveStrokeOnPoint:nextPoint];
   } else {
     [self.view.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
@@ -109,6 +109,11 @@
   }
 }
 
+- (BOOL)shouldSplitActiveStroke
+{
+  return [self.view.activeStroke.points count] >= [self minPointsInStrokeCountToSplit];
+}
+
 - (void)splitActiveStrokeOnPoint:(CGPoint)point
 {
   [self endStrokeWithPoint:point];
@@ -119,17 +124,17 @@
 
 - (NSInteger)undoableStrokesCount
 {
-  return 2;
+  return 0; // Undo is disabled for now
 }
 
 - (NSInteger)minStrokesCountToPrerenderInOnePass
 {
-  return 5;
+  return 10;
 }
 
-- (NSInteger)minPointsInStrokeCountToTriggerPrerender
+- (NSInteger)minPointsInStrokeCountToSplit
 {
-  return 5;
+  return 10;
 }
 
 - (BOOL)shouldPrerender
