@@ -12,6 +12,11 @@
   return self;
 }
 
+- (void)dealloc
+{
+  self.activeStroke = nil;
+}
+
 #pragma mark - Drawing routines
 
 - (void)drawRect:(CGRect)rect
@@ -20,7 +25,9 @@
     [self drawStroke:stroke];
   }
 
-  [self drawStroke:self.activeStroke];
+  if (self.activeStroke) {
+    [self drawStroke:self.activeStroke];
+  }
 }
 
 - (void)drawStroke:(Stroke *)stroke

@@ -56,22 +56,21 @@
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-  // Essentially the same
-  [self touchesMoved:touches withEvent:event];
+  CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
+  [self continueStrokeWithNextPoint:touchPoint];
+  [self moveActiveStrokeToPainting];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
   // Essentially the same
-  [self touchesMoved:touches withEvent:event];
+  [self touchesEnded:touches withEvent:event];
 }
 
 #pragma mark - Stroke creation
 
 - (void)createStrokeWithStartPoint:(CGPoint)startPoint
 {
-  [self addActiveStrokeToPainting];
-  
   Stroke *newStroke = [[Stroke alloc] init];
 
   newStroke.color = self.strokeColor;
@@ -87,10 +86,11 @@
   [self.view setNeedsDisplay];
 }
 
-- (void)addActiveStrokeToPainting
+- (void)moveActiveStrokeToPainting
 {
   if (self.view.activeStroke) {
     [self.painting addStroke:self.view.activeStroke];
+    self.view.activeStroke = nil;
   }
 }
 
