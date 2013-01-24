@@ -7,6 +7,9 @@
 
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *colorButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *pencilButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *rollerButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *eraserButton;
 
 - (IBAction)colorButtonTapped:(UIBarButtonItem *)button;
 - (IBAction)pencilButtonTapped:(id)sender;

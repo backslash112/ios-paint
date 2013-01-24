@@ -83,18 +83,38 @@
 
 - (void)selectPen
 {
+  [self highlightToolButton:self.pencilButton];
   self.canvasViewController.strokeWidth = 1;
 }
 
 - (void)selectRoller
 {
+  [self highlightToolButton:self.rollerButton];
   self.canvasViewController.strokeWidth = 10;
 }
 
 - (void)selectEraser
 {
+  [self highlightToolButton:self.eraserButton];
   self.canvasViewController.strokeColor = [UIColor whiteColor];
   self.canvasViewController.strokeWidth = 20;
+}
+
+- (void)highlightToolButton:(UIBarButtonItem *)buttonToHighlight
+{
+  NSArray *toolButtons = @[self.pencilButton, self.rollerButton, self.eraserButton];
+  
+  for (UIBarButtonItem *button in toolButtons) {
+    if (button == buttonToHighlight) {
+      UIColor *highlightColor = [UIColor colorWithRed:63.0f / 255.0f
+                                                green:129.0f / 255.0f
+                                                 blue:213.0f / 255.0f
+                                                alpha:1.0];
+      button.tintColor = highlightColor;
+    } else {
+      button.tintColor = [UIColor whiteColor];
+    }
+  }
 }
 
 #pragma mark - UIPopoverControllerDelegate
