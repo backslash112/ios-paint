@@ -23,6 +23,12 @@
 		DA7ADA8816AFE0B3007CBD5D /* EditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */; };
 		DA7ADAAE16B0F3D7007CBD5D /* color-wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAAD16B0F3D7007CBD5D /* color-wheel.png */; };
 		DA7ADAB116B10C3D007CBD5D /* ColorPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */; };
+		DA7ADAB716B1358E007CBD5D /* arrow-small-17.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAB216B1358E007CBD5D /* arrow-small-17.png */; };
+		DA7ADAB816B1358E007CBD5D /* arrow-small-18.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAB316B1358E007CBD5D /* arrow-small-18.png */; };
+		DA7ADAB916B1358E007CBD5D /* paint-roller.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAB416B1358E007CBD5D /* paint-roller.png */; };
+		DA7ADABA16B1358E007CBD5D /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAB516B1358E007CBD5D /* pencil.png */; };
+		DA7ADABB16B1358E007CBD5D /* recycle-bin.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAB616B1358E007CBD5D /* recycle-bin.png */; };
+		DA7ADABD16B135EC007CBD5D /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADABC16B135EC007CBD5D /* eraser.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,12 @@
 		DA7ADAAD16B0F3D7007CBD5D /* color-wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "color-wheel.png"; sourceTree = "<group>"; };
 		DA7ADAAF16B10C3D007CBD5D /* ColorPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPicker.h; sourceTree = "<group>"; };
 		DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPicker.m; sourceTree = "<group>"; };
+		DA7ADAB216B1358E007CBD5D /* arrow-small-17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-small-17.png"; sourceTree = "<group>"; };
+		DA7ADAB316B1358E007CBD5D /* arrow-small-18.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-small-18.png"; sourceTree = "<group>"; };
+		DA7ADAB416B1358E007CBD5D /* paint-roller.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "paint-roller.png"; sourceTree = "<group>"; };
+		DA7ADAB516B1358E007CBD5D /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		DA7ADAB616B1358E007CBD5D /* recycle-bin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "recycle-bin.png"; sourceTree = "<group>"; };
+		DA7ADABC16B135EC007CBD5D /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +145,13 @@
 		DA7ADA8916AFF383007CBD5D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DA7ADAB216B1358E007CBD5D /* arrow-small-17.png */,
+				DA7ADAB316B1358E007CBD5D /* arrow-small-18.png */,
+				DA7ADAB416B1358E007CBD5D /* paint-roller.png */,
+				DA7ADAB516B1358E007CBD5D /* pencil.png */,
+				DA7ADAB616B1358E007CBD5D /* recycle-bin.png */,
 				DA7ADAAD16B0F3D7007CBD5D /* color-wheel.png */,
+				DA7ADABC16B135EC007CBD5D /* eraser.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -195,6 +213,12 @@
 				DA7ADA7016AFB510007CBD5D /* Default-568h@2x.png in Resources */,
 				DA7ADA8816AFE0B3007CBD5D /* EditorViewController.xib in Resources */,
 				DA7ADAAE16B0F3D7007CBD5D /* color-wheel.png in Resources */,
+				DA7ADAB716B1358E007CBD5D /* arrow-small-17.png in Resources */,
+				DA7ADAB816B1358E007CBD5D /* arrow-small-18.png in Resources */,
+				DA7ADAB916B1358E007CBD5D /* paint-roller.png in Resources */,
+				DA7ADABA16B1358E007CBD5D /* pencil.png in Resources */,
+				DA7ADABB16B1358E007CBD5D /* recycle-bin.png in Resources */,
+				DA7ADABD16B135EC007CBD5D /* eraser.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

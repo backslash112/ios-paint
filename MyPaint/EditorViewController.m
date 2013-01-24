@@ -43,11 +43,26 @@
   // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Actions
+
 - (IBAction)colorButtonTapped:(UIBarButtonItem *)button
 {
   [self.colorPickerPopupController presentPopoverFromBarButtonItem:button
                                           permittedArrowDirections:UIPopoverArrowDirectionAny
                                                           animated:YES];
+}
+
+- (IBAction)pencilButtonTapped:(id)sender {
+  self.canvasViewController.strokeWidth = 1;
+}
+
+- (IBAction)rollerButtonTapped:(id)sender {
+  self.canvasViewController.strokeWidth = 10;
+}
+
+- (IBAction)eraserButtonTapped:(id)sender {
+  self.canvasViewController.strokeColor = [UIColor whiteColor];
+  self.canvasViewController.strokeWidth = 10;
 }
 
 #pragma mark - UIPopoverControllerDelegate
