@@ -63,6 +63,7 @@
 - (void)colorPickerDidChangeColor:(ColorPicker *)colorPicker
 {
   self.canvasViewController.strokeColor = colorPicker.color;
+  self.colorButton.tintColor = colorPicker.color;
 }
 
 #pragma mark - Properties
