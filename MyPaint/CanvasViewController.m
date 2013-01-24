@@ -1,10 +1,11 @@
 #import "CanvasViewController.h"
+#import "Painting.h"
+#import "Stroke.h"
 
 
 @interface CanvasViewController ()
 
-@property (strong, nonatomic) NSMutableArray *strokes;
-@property (readonly, nonatomic) Stroke *activeStroke;
+@property (strong, nonatomic) Painting *painting;
 
 @end
 
@@ -21,7 +22,7 @@
     self.strokeColor = [UIColor blackColor];
     self.strokeWidth = 10.0f;
     
-    self.strokes = [[NSMutableArray alloc] init];
+    self.painting = [[Painting alloc] init];
   }
   return self;
 }
@@ -29,6 +30,14 @@
 - (void)loadView
 {
   self.view = [[CanvasView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+}
+
+#pragma mark - Properties
+
+- (void)setPainting:(Painting *)painting
+{
+  _painting = painting;
+  self.view.painting = painting;
 }
 
 #pragma mark - Touch events
@@ -57,37 +66,32 @@
   [self touchesMoved:touches withEvent:event];
 }
 
-#pragma mark - Properties
-
-- (void)setStrokes:(NSMutableArray *)strokes
-{
-  _strokes = strokes;
-  self.view.strokes = _strokes;
-}
-
-- (Stroke *)activeStroke
-{
-  return [self.strokes lastObject];
-}
-
 #pragma mark - Stroke creation
 
 - (void)createStrokeWithStartPoint:(CGPoint)startPoint
 {
+  [self addActiveStrokeToPainting];
+  
   Stroke *newStroke = [[Stroke alloc] init];
 
-  [self.strokes addObject:newStroke];
+  newStroke.color = self.strokeColor;
+  newStroke.width = self.strokeWidth;
+  [newStroke.points addObject:[NSValue valueWithCGPoint:startPoint]];
 
-  self.activeStroke.color = self.strokeColor;
-  self.activeStroke.width = self.strokeWidth;
-
-  [self.activeStroke.points addObject:[NSValue valueWithCGPoint:startPoint]];
+  self.view.activeStroke = newStroke;
 }
 
 - (void)continueStrokeWithNextPoint:(CGPoint)nextPoint
 {
-  [self.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
+  [self.view.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
   [self.view setNeedsDisplay];
+}
+
+- (void)addActiveStrokeToPainting
+{
+  if (self.view.activeStroke) {
+    [self.painting addStroke:self.view.activeStroke];
+  }
 }
 
 @end

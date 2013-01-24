@@ -12,38 +12,37 @@
   return self;
 }
 
-- (void)dealloc
-{
-  self.strokes = nil;
-}
-
 #pragma mark - Drawing routines
 
 - (void)drawRect:(CGRect)rect
 {
-  CGContextRef context = UIGraphicsGetCurrentContext();
-
-  for (Stroke *stroke in self.strokes) {
-    [self drawWithContext:context stroke:stroke];
+  for (Stroke *stroke in self.painting.strokes) {
+    [self drawStroke:stroke];
   }
+
+  [self drawStroke:self.activeStroke];
 }
 
-- (void)drawWithContext:(CGContextRef)context stroke:(Stroke *)stroke
+- (void)drawStroke:(Stroke *)stroke
 {
-  [self prepareContext:context forDrawingStroke:stroke];
-  [self drawWithContext:context lineWithPoints:stroke.points];
+  [self prepareContextForDrawingStroke:stroke];
+  [self drawWithContextLineWithPoints:stroke.points];
 }
 
-- (void)prepareContext:(CGContextRef)context forDrawingStroke:(Stroke *)stroke
+- (void)prepareContextForDrawingStroke:(Stroke *)stroke
 {
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  
   CGContextSetStrokeColorWithColor(context, [stroke.color CGColor]);
   CGContextSetLineCap(context, kCGLineCapRound);
   CGContextSetLineWidth(context, stroke.width);
   CGContextMoveToPoint(context, 0, 0);
 }
 
-- (void)drawWithContext:(CGContextRef)context lineWithPoints:(NSArray *)points
+- (void)drawWithContextLineWithPoints:(NSArray *)points
 {
+  CGContextRef context = UIGraphicsGetCurrentContext();
+  
   if ([points count] > 0) {
     CGPoint point = [points[0] CGPointValue];
     CGContextMoveToPoint(context, point.x, point.y);
