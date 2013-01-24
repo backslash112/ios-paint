@@ -112,7 +112,8 @@
   enum { kNoButtonIndex, kYesButtonIndex };
 
   if (buttonIndex == kYesButtonIndex) {
-    // TODO: Implement clear screen
+    self.canvasViewController.painting = [[Painting alloc] init];
+    [self.canvasViewController.view setNeedsDisplay];
   }
 }
 

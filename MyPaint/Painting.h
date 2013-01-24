@@ -4,7 +4,11 @@
 
 @interface Painting : NSObject
 
+@property (strong, nonatomic) UIImage *prerenderedImage;
+
+
 - (void)addStroke:(Stroke *)stroke;
+- (void)removeFirstStrokesCount:(NSInteger)count;
 
 @end
 

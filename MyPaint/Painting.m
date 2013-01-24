@@ -30,4 +30,9 @@
   [self.strokes addObject:stroke];
 }
 
+- (void)removeFirstStrokesCount:(NSInteger)count
+{
+  [self.strokes removeObjectsInRange:NSMakeRange(0, count)];
+}
+
 @end

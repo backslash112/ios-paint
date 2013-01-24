@@ -30,6 +30,7 @@
 		DA7ADABB16B1358E007CBD5D /* recycle-bin.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAB616B1358E007CBD5D /* recycle-bin.png */; };
 		DA7ADABD16B135EC007CBD5D /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADABC16B135EC007CBD5D /* eraser.png */; };
 		DA7ADAC016B150CC007CBD5D /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADABF16B150CC007CBD5D /* Painting.m */; };
+		DA7ADAC316B15D08007CBD5D /* PaintingRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		DA7ADABC16B135EC007CBD5D /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
 		DA7ADABE16B150CC007CBD5D /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
 		DA7ADABF16B150CC007CBD5D /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
+		DA7ADAC116B15D08007CBD5D /* PaintingRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingRenderer.h; sourceTree = "<group>"; };
+		DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingRenderer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */,
 				DA7ADABE16B150CC007CBD5D /* Painting.h */,
 				DA7ADABF16B150CC007CBD5D /* Painting.m */,
+				DA7ADAC116B15D08007CBD5D /* PaintingRenderer.h */,
+				DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */,
 			);
 			path = MyPaint;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				DA7ADA8716AFE0B3007CBD5D /* EditorViewController.m in Sources */,
 				DA7ADAB116B10C3D007CBD5D /* ColorPicker.m in Sources */,
 				DA7ADAC016B150CC007CBD5D /* Painting.m in Sources */,
+				DA7ADAC316B15D08007CBD5D /* PaintingRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

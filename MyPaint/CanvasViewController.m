@@ -1,11 +1,11 @@
 #import "CanvasViewController.h"
-#import "Painting.h"
 #import "Stroke.h"
+#import "PaintingRenderer.h"
 
 
 @interface CanvasViewController ()
 
-@property (strong, nonatomic) Painting *painting;
+@property (assign, nonatomic) NSInteger prerenderedStrokesCount;
 
 @end
 
@@ -23,6 +23,7 @@
     self.strokeWidth = 10.0f;
     
     self.painting = [[Painting alloc] init];
+    self.prerenderedStrokesCount = 0;
   }
   return self;
 }
@@ -57,8 +58,7 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
   CGPoint touchPoint = [[touches anyObject] locationInView:self.view];
-  [self continueStrokeWithNextPoint:touchPoint];
-  [self moveActiveStrokeToPainting];
+  [self endStrokeWithPoint:touchPoint];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
@@ -82,8 +82,23 @@
 
 - (void)continueStrokeWithNextPoint:(CGPoint)nextPoint
 {
-  [self.view.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
+  if ([self.view.activeStroke.points count] >= [self minPointsInStrokeCountToTriggerPrerender]) {
+    [self splitActiveStrokeOnPoint:nextPoint];
+  } else {
+    [self.view.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
+  }
+  
   [self.view setNeedsDisplay];
+}
+
+- (void)endStrokeWithPoint:(CGPoint)endPoint
+{
+  [self.view.activeStroke.points addObject:[NSValue valueWithCGPoint:endPoint]];
+  [self moveActiveStrokeToPainting];
+
+  if ([self shouldPrerender]) {
+    [self prerender];
+  }
 }
 
 - (void)moveActiveStrokeToPainting
@@ -94,4 +109,96 @@
   }
 }
 
+- (void)splitActiveStrokeOnPoint:(CGPoint)point
+{
+  [self endStrokeWithPoint:point];
+  [self createStrokeWithStartPoint:point];
+}
+
+#pragma mark - Painting prerendering
+
+- (NSInteger)undoableStrokesCount
+{
+  return 2;
+}
+
+- (NSInteger)minStrokesCountToPrerenderInOnePass
+{
+  return 5;
+}
+
+- (NSInteger)minPointsInStrokeCountToTriggerPrerender
+{
+  return 5;
+}
+
+- (BOOL)shouldPrerender
+{
+  NSInteger strokesThatShouldBePrerenderedButCurrentlyNotCount =
+      [self.painting.strokes count] - self.prerenderedStrokesCount - [self undoableStrokesCount];
+  return strokesThatShouldBePrerenderedButCurrentlyNotCount >= [self minStrokesCountToPrerenderInOnePass];
+}
+
+- (void)prerender
+{
+  UIGraphicsBeginImageContext(self.view.frame.size);
+
+  [self fixContextOrientation];
+
+  NSInteger strokesToPrerenderCount = [self.painting.strokes count] - [self undoableStrokesCount];
+  
+  [PaintingRenderer drawPainting:self.painting count:strokesToPrerenderCount];
+
+  UIImage *prerenderedImage = UIGraphicsGetImageFromCurrentImageContext();
+  UIGraphicsEndImageContext();
+
+  self.painting.prerenderedImage = prerenderedImage;
+  [self.painting removeFirstStrokesCount:strokesToPrerenderCount];
+  self.prerenderedStrokesCount = strokesToPrerenderCount;
+}
+
+- (void)fixContextOrientation
+{
+  CGContextRef context = UIGraphicsGetCurrentContext();
+
+  CGContextTranslateCTM(context, 0, self.view.frame.size.height);
+  CGContextScaleCTM(context, 1.0, -1.0);
+}
+
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

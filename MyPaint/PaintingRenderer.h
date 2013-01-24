@@ -1,13 +1,13 @@
-//
-//  PaintingRenderer.h
-//  MyPaint
-//
-//  Created by Pavel Logvinov on 24.01.13.
-//  Copyright (c) 2013 Pavel Logvinov. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
+#import "Painting.h"
+
 
 @interface PaintingRenderer : NSObject
+
++ (void)drawPainting:(Painting *)painting count:(NSInteger)count;
+
++ (void)drawPainting:(Painting *)painting;
+
++ (void)drawStroke:(Stroke *)stroke;
 
 @end
