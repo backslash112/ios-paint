@@ -138,8 +138,6 @@
 
 - (void)prerender
 {
-  NSLog(@"Prerendering...");
-  
   UIGraphicsBeginImageContext(self.view.frame.size);
 
   [self fixContextOrientation];

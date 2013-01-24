@@ -6,6 +6,7 @@
 
 @property (strong, nonatomic) CanvasViewController *canvasViewController;
 @property (strong, nonatomic) UIPopoverController *colorPickerPopupController;
+@property (strong, nonatomic) UIColor *color;
 
 @end
 
@@ -25,6 +26,8 @@
 - (void)dealloc
 {
   self.canvasViewController = nil;
+  self.colorPickerPopupController = nil;
+  self.color = nil;
 }
 
 - (void)viewDidLoad
@@ -84,12 +87,14 @@
 - (void)selectPen
 {
   [self highlightToolButton:self.pencilButton];
+  self.canvasViewController.strokeColor = self.color;
   self.canvasViewController.strokeWidth = 1;
 }
 
 - (void)selectRoller
 {
   [self highlightToolButton:self.rollerButton];
+  self.canvasViewController.strokeColor = self.color;
   self.canvasViewController.strokeWidth = 10;
 }
 
@@ -142,6 +147,7 @@
 - (void)colorPickerDidChangeColor:(ColorPicker *)colorPicker
 {
   self.canvasViewController.strokeColor = colorPicker.color;
+  self.color = colorPicker.color;
   self.colorButton.tintColor = colorPicker.color;
 }
 
