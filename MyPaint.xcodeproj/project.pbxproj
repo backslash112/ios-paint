@@ -31,6 +31,8 @@
 		DA7ADABD16B135EC007CBD5D /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADABC16B135EC007CBD5D /* eraser.png */; };
 		DA7ADAC016B150CC007CBD5D /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADABF16B150CC007CBD5D /* Painting.m */; };
 		DA7ADAC316B15D08007CBD5D /* PaintingRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */; };
+		DAC303E716B24DEA0073C760 /* Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC303E616B24DEA0073C760 /* Icon~ipad.png */; };
+		DAC303E916B24DED0073C760 /* Icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		DA7ADABF16B150CC007CBD5D /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
 		DA7ADAC116B15D08007CBD5D /* PaintingRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingRenderer.h; sourceTree = "<group>"; };
 		DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingRenderer.m; sourceTree = "<group>"; };
+		DAC303E616B24DEA0073C760 /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon~ipad.png"; path = "../../Icon~ipad.png"; sourceTree = "<group>"; };
+		DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x~ipad.png"; path = "../../Icon@2x~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 		DA7ADA8916AFF383007CBD5D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */,
+				DAC303E616B24DEA0073C760 /* Icon~ipad.png */,
 				DA7ADAB216B1358E007CBD5D /* arrow-small-17.png */,
 				DA7ADAB316B1358E007CBD5D /* arrow-small-18.png */,
 				DA7ADAB416B1358E007CBD5D /* paint-roller.png */,
@@ -229,6 +235,8 @@
 				DA7ADABA16B1358E007CBD5D /* pencil.png in Resources */,
 				DA7ADABB16B1358E007CBD5D /* recycle-bin.png in Resources */,
 				DA7ADABD16B135EC007CBD5D /* eraser.png in Resources */,
+				DAC303E716B24DEA0073C760 /* Icon~ipad.png in Resources */,
+				DAC303E916B24DED0073C760 /* Icon@2x~ipad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
