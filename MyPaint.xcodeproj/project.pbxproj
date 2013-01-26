@@ -71,8 +71,8 @@
 		DA7ADABF16B150CC007CBD5D /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
 		DA7ADAC116B15D08007CBD5D /* PaintingRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingRenderer.h; sourceTree = "<group>"; };
 		DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingRenderer.m; sourceTree = "<group>"; };
-		DAC303E616B24DEA0073C760 /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon~ipad.png"; path = "../../Icon~ipad.png"; sourceTree = "<group>"; };
-		DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x~ipad.png"; path = "../../Icon@2x~ipad.png"; sourceTree = "<group>"; };
+		DAC303E616B24DEA0073C760 /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~ipad.png"; sourceTree = "<group>"; };
+		DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
