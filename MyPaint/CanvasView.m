@@ -13,11 +13,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  self.activeStroke = nil;
-}
-
 #pragma mark - Drawing routines
 
 - (void)drawRect:(CGRect)rect

@@ -20,11 +20,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  self.strokes = nil;
-}
-
 - (void)addStroke:(Stroke *)stroke
 {
   [self.strokes addObject:stroke];

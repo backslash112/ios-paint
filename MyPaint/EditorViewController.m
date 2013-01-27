@@ -23,13 +23,6 @@
   return self;
 }
 
-- (void)dealloc
-{
-  self.canvasViewController = nil;
-  self.colorPickerPopupController = nil;
-  self.color = nil;
-}
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
