@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA50DCB116B554E30079E500 /* Shape.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50DCB016B554E30079E500 /* Shape.m */; };
+		DA50DCB516B556970079E500 /* StrokeShape.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50DCB416B556970079E500 /* StrokeShape.m */; };
 		DA7ADA5A16AFB510007CBD5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7ADA5916AFB510007CBD5D /* UIKit.framework */; };
 		DA7ADA5C16AFB510007CBD5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7ADA5B16AFB510007CBD5D /* Foundation.framework */; };
 		DA7ADA5E16AFB510007CBD5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7ADA5D16AFB510007CBD5D /* CoreGraphics.framework */; };
@@ -39,6 +40,8 @@
 /* Begin PBXFileReference section */
 		DA50DCAF16B554E30079E500 /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
 		DA50DCB016B554E30079E500 /* Shape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shape.m; sourceTree = "<group>"; };
+		DA50DCB316B556970079E500 /* StrokeShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrokeShape.h; sourceTree = "<group>"; };
+		DA50DCB416B556970079E500 /* StrokeShape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrokeShape.m; sourceTree = "<group>"; };
 		DA7ADA5516AFB510007CBD5D /* MyPaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPaint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7ADA5916AFB510007CBD5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA7ADA5B16AFB510007CBD5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +100,8 @@
 			children = (
 				DA50DCAF16B554E30079E500 /* Shape.h */,
 				DA50DCB016B554E30079E500 /* Shape.m */,
+				DA50DCB316B556970079E500 /* StrokeShape.h */,
+				DA50DCB416B556970079E500 /* StrokeShape.m */,
 			);
 			name = Shapes;
 			sourceTree = "<group>";
@@ -270,6 +275,7 @@
 				DA7ADAC016B150CC007CBD5D /* Painting.m in Sources */,
 				DA7ADAC316B15D08007CBD5D /* PaintingRenderer.m in Sources */,
 				DA50DCB116B554E30079E500 /* Shape.m in Sources */,
+				DA50DCB516B556970079E500 /* StrokeShape.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
