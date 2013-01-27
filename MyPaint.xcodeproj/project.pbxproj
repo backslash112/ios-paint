@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA50DCB116B554E30079E500 /* Shape.m in Sources */ = {isa = PBXBuildFile; fileRef = DA50DCB016B554E30079E500 /* Shape.m */; };
 		DA7ADA5A16AFB510007CBD5D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7ADA5916AFB510007CBD5D /* UIKit.framework */; };
 		DA7ADA5C16AFB510007CBD5D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7ADA5B16AFB510007CBD5D /* Foundation.framework */; };
 		DA7ADA5E16AFB510007CBD5D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7ADA5D16AFB510007CBD5D /* CoreGraphics.framework */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA50DCAF16B554E30079E500 /* Shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shape.h; sourceTree = "<group>"; };
+		DA50DCB016B554E30079E500 /* Shape.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shape.m; sourceTree = "<group>"; };
 		DA7ADA5516AFB510007CBD5D /* MyPaint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPaint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA7ADA5916AFB510007CBD5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DA7ADA5B16AFB510007CBD5D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA50DCB216B556320079E500 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				DA50DCAF16B554E30079E500 /* Shape.h */,
+				DA50DCB016B554E30079E500 /* Shape.m */,
+			);
+			name = Shapes;
+			sourceTree = "<group>";
+		};
 		DA7ADA4A16AFB510007CBD5D = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,7 @@
 		DA7ADA5F16AFB510007CBD5D /* MyPaint */ = {
 			isa = PBXGroup;
 			children = (
+				DA50DCB216B556320079E500 /* Shapes */,
 				DA7ADA8916AFF383007CBD5D /* Resources */,
 				DA7ADA6016AFB510007CBD5D /* Supporting Files */,
 				DA7ADA6816AFB510007CBD5D /* AppDelegate.h */,
@@ -256,6 +269,7 @@
 				DA7ADAB116B10C3D007CBD5D /* ColorPicker.m in Sources */,
 				DA7ADAC016B150CC007CBD5D /* Painting.m in Sources */,
 				DA7ADAC316B15D08007CBD5D /* PaintingRenderer.m in Sources */,
+				DA50DCB116B554E30079E500 /* Shape.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
