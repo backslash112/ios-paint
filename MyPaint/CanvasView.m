@@ -20,6 +20,7 @@
 
 - (void)reloadData
 {
+  [self dropPrerenderedShapesImage];
   [self setNeedsDisplay];
 }
 
@@ -65,9 +66,8 @@
 
 - (NSInteger)numberOfShapesToPrerender
 {
-  NSInteger numberOfShapes = [self.datasource numberOfShapesInCanvasView:self];
   NSInteger numberOfShapesThatCouldChangeShortly = 1;
-  return numberOfShapes - _numberOfPrerenderedShapes - numberOfShapesThatCouldChangeShortly;
+  return [self numberOfShapes] - _numberOfPrerenderedShapes - numberOfShapesThatCouldChangeShortly;
 }
 
 - (void)prerenderIfNeeded
@@ -89,8 +89,7 @@
   [self drawPrerenderedShapesImage];
   
   for (int i = indexOfFirstShapeToPrerender; i <= indexOfLastShapeToPrerender; i++) {
-    Shape *shape = [self.datasource canvasView:self shapeAtIndex:i];
-    [shape drawWithCurrentContext];
+    [[self shapeAtIndex:i] drawWithCurrentContext];
   }
 
   _prerenderedShapesImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -125,11 +124,10 @@
 - (void)drawShapes
 {
   NSInteger indexOfFirstShapeToDraw = _numberOfPrerenderedShapes;
-  NSInteger numberOfShapes = [self.datasource numberOfShapesInCanvasView:self];
+  NSInteger numberOfShapes = [self numberOfShapes];
 
   for (int i = indexOfFirstShapeToDraw; i < numberOfShapes; i++) {
-    Shape *shape = [self.datasource canvasView:self shapeAtIndex:i];
-    [shape drawWithCurrentContext];
+    [[self shapeAtIndex:i] drawWithCurrentContext];
   }
 }
 
@@ -137,6 +135,18 @@
 {
   _prerenderedShapesImage = nil;
   _numberOfPrerenderedShapes = 0;
+}
+
+#pragma mark - Helpers
+
+- (NSInteger)numberOfShapes
+{
+  return [self.datasource numberOfShapesInCanvasView:self];
+}
+
+- (Shape *)shapeAtIndex:(NSInteger)index
+{
+  return [self.datasource canvasView:self shapeAtIndex:index];
 }
 
 @end
