@@ -7,17 +7,15 @@
 
 - (id)init
 {
-  NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString *docsDir = [dirPaths objectAtIndex:0];
-  NSString *dataFile = [docsDir stringByAppendingPathComponent:@"remove_me.doc"];
-  
-  self = [super initWithFileURL:[NSURL fileURLWithPath:dataFile]];
+  self = [super init];
   if (self) {
     _strokes = [[NSMutableArray alloc] init];
   }
 
   return self;
 }
+
+#pragma mark - Public interface
 
 - (NSInteger)numberOfStrokes
 {
@@ -65,6 +63,17 @@
   if ([self.delegate respondsToSelector:@selector(strokeDidRemoveAtIndex:)]) {
     [self.delegate strokeDidRemoveAtIndex:index];
   }
+}
+
+#pragma mark - Properties
+
+- (NSUndoManager *)undoManager
+{
+  if (_undoManager == nil) {
+    _undoManager = [[NSUndoManager alloc] init];
+  }
+
+  return _undoManager;
 }
 
 @end

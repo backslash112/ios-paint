@@ -7,10 +7,11 @@
 
 // Painting is a document, containing strokes.
 //
-@interface Painting : UIDocument
+@interface Painting : NSObject
 
 @property (assign, readonly, nonatomic) NSInteger numberOfStrokes;
 @property (weak, nonatomic) id <PaintingDelegate> delegate;
+@property (strong, nonatomic) NSUndoManager *undoManager;
 
 - (void)addStroke:(Stroke *)stroke;
 - (void)removeLastStroke;
