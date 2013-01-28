@@ -17,19 +17,13 @@
 
 - (void)drawRect:(CGRect)rect
 {
-  [self drawPainting];
-  [self drawActiveStroke];
-}
+  if (self.datasource != nil) {
+    NSInteger numberOfShapes = [self.datasource numberOfShapesInCanvasView:self];
 
-- (void)drawPainting
-{
-  [PaintingRenderer drawPainting:self.painting];
-}
-
-- (void)drawActiveStroke
-{
-  if (self.activeStroke) {
-    [PaintingRenderer drawStroke:self.activeStroke];
+    for (NSInteger i = 0; i < numberOfShapes; i++) {
+      Shape *shape = [self.datasource canvasView:self shapeAtIndex:i];
+      [shape drawWithCurrentContext];
+    }
   }
 }
 

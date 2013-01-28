@@ -26,7 +26,7 @@
 - (void)drawWithContext:(CGContextRef)context
 {
   [self prepareContext:context];
-  [self drawWithContext:context];
+  [self drawStrokeWithContext:context];
 }
 
 - (void)prepareContext:(CGContextRef)context

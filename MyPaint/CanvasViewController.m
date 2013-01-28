@@ -1,6 +1,7 @@
 #import "CanvasViewController.h"
 #import "Stroke.h"
 #import "PaintingRenderer.h"
+#import "StrokeShape.h"
 
 
 @implementation CanvasViewController
@@ -23,6 +24,7 @@
 - (void)loadView
 {
   self.view = [[CanvasView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+  self.view.datasource = self;
 }
 
 #pragma mark - Properties
@@ -31,6 +33,19 @@
 {
   _painting = painting;
   self.view.painting = painting;
+}
+
+#pragma mark - CanvasViewDatasource
+
+- (NSInteger)numberOfShapesInCanvasView:(CanvasView *)canvasView
+{
+  return [self.painting.strokes count];
+}
+
+- (Shape *)canvasView:(CanvasView *)canvasView shapeAtIndex:(NSInteger)index
+{
+  Stroke *stroke = self.painting.strokes[index];
+  return [[StrokeShape alloc] initWithStroke:stroke];
 }
 
 #pragma mark - Touch events
