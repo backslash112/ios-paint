@@ -5,6 +5,7 @@
 @interface EditorViewController ()
 
 @property (strong, nonatomic) UIPopoverController *colorPickerPopupController;
+@property (strong, nonatomic) Painting *painting;
 
 @end
 
@@ -18,7 +19,8 @@
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
   if (self) {
-
+    _canvasViewController = [[CanvasViewController alloc] initWithNibName:nil bundle:nil];
+    self.painting = [[Painting alloc] init];
   }
   
   return self;
@@ -28,12 +30,12 @@
 {
   [super viewDidLoad];
 
-  _canvasViewController = [[CanvasViewController alloc] initWithNibName:nil bundle:nil];
   [self addChildViewController:_canvasViewController];
   [self.view insertSubview:_canvasViewController.view belowSubview:self.toolbar];
   _canvasViewController.view.frame = self.view.frame;
 
   [self selectPen];
+  [self activateUndoRedoButtons];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +80,7 @@
 
 - (IBAction)undoButtonTapped:(UIBarButtonItem *)sender
 {
-  
+  [self.painting.undoManager undo];
 }
 
 - (IBAction)redoButtonTapped:(UIBarButtonItem *)sender
@@ -109,6 +111,8 @@
   _canvasViewController.strokeWidth = 20;
 }
 
+#pragma mark - Toolbar buttons highlighting/activation
+
 - (void)highlightToolButton:(UIBarButtonItem *)buttonToHighlight
 {
   NSArray *toolButtons = @[self.pencilButton, self.rollerButton, self.eraserButton];
@@ -124,6 +128,12 @@
       button.tintColor = [UIColor whiteColor];
     }
   }
+}
+
+- (void)activateUndoRedoButtons
+{
+  self.undoButton.enabled = [self.painting.undoManager canUndo];
+  self.redoButton.enabled = [self.painting.undoManager canRedo];
 }
 
 #pragma mark - UIPopoverControllerDelegate
@@ -155,6 +165,13 @@
   self.colorButton.tintColor = colorPicker.color;
 }
 
+#pragma mark - Notifications
+
+- (void)paintingDidChange:(NSNotification *)notification
+{
+  [self activateUndoRedoButtons];
+}
+
 #pragma mark - Properties
 
 - (UIPopoverController *)colorPickerPopupController
@@ -172,6 +189,20 @@
   }
 
   return _colorPickerPopupController;
+}
+
+- (void)setPainting:(Painting *)painting
+{
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:NSUndoManagerCheckpointNotification
+                                                object:_painting];
+  
+  _canvasViewController.painting = _painting = painting;
+
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(paintingDidChange:)
+                                               name:NSUndoManagerCheckpointNotification
+                                             object:_painting.undoManager];
 }
 
 @end

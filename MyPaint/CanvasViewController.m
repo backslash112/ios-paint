@@ -15,7 +15,7 @@
     self.strokeColor = [UIColor blackColor];
     self.strokeWidth = 10.0f;
     
-    self.painting = [[Painting alloc] init];
+    //self.painting = [[Painting alloc] init];
   }
   return self;
 }

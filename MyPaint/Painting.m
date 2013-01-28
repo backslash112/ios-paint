@@ -7,7 +7,11 @@
 
 - (id)init
 {
-  self = [super init];
+  NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *docsDir = [dirPaths objectAtIndex:0];
+  NSString *dataFile = [docsDir stringByAppendingPathComponent:@"remove_me.doc"];
+  
+  self = [super initWithFileURL:[NSURL fileURLWithPath:dataFile]];
   if (self) {
     _strokes = [[NSMutableArray alloc] init];
   }
@@ -23,7 +27,13 @@
 - (void)addStroke:(Stroke *)stroke
 {
   [_strokes addObject:stroke];
-  [self strokeDidInsertAtIndex:[_strokes count] - 1];
+  NSInteger indexOfStrokeAdded = [_strokes count] - 1;
+  
+  [self.undoManager registerUndoWithTarget:self
+                                  selector:@selector(removeLastStroke)
+                                    object:nil];
+
+  [self strokeDidInsertAtIndex:indexOfStrokeAdded];
 }
 
 - (void)insertStroke:(Stroke *)stroke atIndex:(NSInteger)index
