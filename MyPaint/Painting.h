@@ -13,9 +13,6 @@
 @property (weak, nonatomic) id <PaintingDelegate> delegate;
 
 - (void)addStroke:(Stroke *)stroke;
-- (void)insertStroke:(Stroke *)stroke atIndex:(NSInteger)index;
-
-- (void)removeStrokeAtIndex:(NSInteger)index;
 - (void)removeLastStroke;
 
 - (Stroke *)strokeAtIndex:(NSInteger)index;

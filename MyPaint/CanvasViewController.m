@@ -68,7 +68,7 @@
 
 - (void)strokeDidRemoveAtIndex:(NSInteger)index
 {
-
+  [self.view didRemoveShapeAtIndex:index];
 }
 
 #pragma mark - Touch events

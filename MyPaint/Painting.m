@@ -28,28 +28,15 @@
 {
   [_strokes addObject:stroke];
   NSInteger indexOfStrokeAdded = [_strokes count] - 1;
-  
-  [self.undoManager registerUndoWithTarget:self
-                                  selector:@selector(removeLastStroke)
-                                    object:nil];
+
+  [[self.undoManager prepareWithInvocationTarget:self] removeLastStroke];
 
   [self strokeDidInsertAtIndex:indexOfStrokeAdded];
 }
 
-- (void)insertStroke:(Stroke *)stroke atIndex:(NSInteger)index
-{
-  [_strokes insertObject:stroke atIndex:index];
-  [self strokeDidInsertAtIndex:index];
-}
-
-- (void)removeStrokeAtIndex:(NSInteger)index
-{
-  [_strokes removeObjectAtIndex:index];
-  [self strokeDidRemoveAtIndex:index];
-}
-
 - (void)removeLastStroke
 {
+  [[self.undoManager prepareWithInvocationTarget:self] addStroke:[self lastStroke]];
   [_strokes removeLastObject];
   [self strokeDidRemoveAtIndex:[_strokes count]];
 }

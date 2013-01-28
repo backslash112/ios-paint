@@ -85,7 +85,7 @@
 
 - (IBAction)redoButtonTapped:(UIBarButtonItem *)sender
 {
-  
+  [self.painting.undoManager redo];
 }
 
 #pragma mark - Tool presets
@@ -193,9 +193,11 @@
 
 - (void)setPainting:(Painting *)painting
 {
-  [[NSNotificationCenter defaultCenter] removeObserver:self
-                                                  name:NSUndoManagerCheckpointNotification
-                                                object:_painting];
+  if (_painting != nil) {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:NSUndoManagerCheckpointNotification
+                                                  object:_painting.undoManager];
+  }
   
   _canvasViewController.painting = _painting = painting;
 
