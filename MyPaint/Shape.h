@@ -1,6 +1,3 @@
-#import <Foundation/Foundation.h>
-
-
 // Shape is an abstract entity that could be drawn on a canvas.
 // Subclasses should implement |drawWithContext:| method.
 //

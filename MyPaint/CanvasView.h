@@ -1,6 +1,3 @@
-#import <UIKit/UIKit.h>
-#import "Stroke.h"
-#import "Painting.h"
 #import "Shape.h"
 
 

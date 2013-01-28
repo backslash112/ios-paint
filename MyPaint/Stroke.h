@@ -1,6 +1,3 @@
-#import <Foundation/Foundation.h>
-
-
 @interface Stroke : NSObject
 
 @property (strong, nonatomic) NSMutableArray *points;
