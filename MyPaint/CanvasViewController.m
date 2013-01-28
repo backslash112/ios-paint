@@ -89,18 +89,20 @@
   [newStroke.points addObject:[NSValue valueWithCGPoint:startPoint]];
 
   [self setActiveStroke:newStroke];
+
+  [self.view didInsertShapeAtIndex:[self.painting.strokes count] - 1];
 }
 
 - (void)continueStrokeWithNextPoint:(CGPoint)nextPoint
 {
   [self.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
-  [self.view setNeedsDisplay];
+  [self.view didChangeShapeAtIndex:[self.painting.strokes count] - 1];
 }
 
 - (void)endStrokeWithPoint:(CGPoint)endPoint
 {
   [self.activeStroke.points addObject:[NSValue valueWithCGPoint:endPoint]];
-  [self.view setNeedsDisplay];
+  [self.view didChangeShapeAtIndex:[self.painting.strokes count] - 1];
 }
 
 @end
