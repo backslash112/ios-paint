@@ -50,22 +50,22 @@
                                                           animated:YES];
 }
 
-- (IBAction)pencilButtonTapped:(id)sender
+- (IBAction)pencilButtonTapped:(UIBarButtonItem *)sender
 {
   [self selectPen];
 }
 
-- (IBAction)rollerButtonTapped:(id)sender
+- (IBAction)rollerButtonTapped:(UIBarButtonItem *)sender
 {
   [self selectRoller];
 }
 
-- (IBAction)eraserButtonTapped:(id)sender
+- (IBAction)eraserButtonTapped:(UIBarButtonItem *)sender
 {
   [self selectEraser];
 }
 
-- (IBAction)trashButtonTapped:(id)sender
+- (IBAction)trashButtonTapped:(UIBarButtonItem *)sender
 {
   UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Warning"
                                                        message:@"Are you sure you want to start over?"
@@ -73,6 +73,16 @@
                                              cancelButtonTitle:@"No"
                                              otherButtonTitles:@"Yes", nil];
   [errorAlert show];
+}
+
+- (IBAction)undoButtonTapped:(UIBarButtonItem *)sender
+{
+  
+}
+
+- (IBAction)redoButtonTapped:(UIBarButtonItem *)sender
+{
+  
 }
 
 #pragma mark - Tool presets
@@ -131,7 +141,7 @@
 
   if (buttonIndex == kYesButtonIndex) {
     self.canvasViewController.painting = [[Painting alloc] init];
-    [self.canvasViewController.view setNeedsDisplay];
+    [self.canvasViewController.view reloadData];
   }
 }
 

@@ -28,6 +28,14 @@
 
 #pragma mark - Properties
 
+- (void)setPainting:(Painting *)painting
+{
+  _painting.delegate = nil;
+  painting.delegate = self;
+
+  _painting = painting;
+}
+
 - (Stroke *)activeStroke
 {
   return [self.painting lastStroke];
@@ -49,6 +57,18 @@
 {
   Stroke *stroke = [self.painting strokeAtIndex:index];
   return [[StrokeShape alloc] initWithStroke:stroke];
+}
+
+#pragma mark - PaintingDelegate
+
+- (void)strokeDidInsertAtIndex:(NSInteger)index
+{
+  [self.view didInsertShapeAtIndex:index];
+}
+
+- (void)strokeDidRemoveAtIndex:(NSInteger)index
+{
+
 }
 
 #pragma mark - Touch events
@@ -88,8 +108,6 @@
   [newStroke.points addObject:[NSValue valueWithCGPoint:startPoint]];
 
   [self setActiveStroke:newStroke];
-
-  [self.view didInsertShapeAtIndex:self.painting.numberOfStrokes - 1];
 }
 
 - (void)continueStrokeWithNextPoint:(CGPoint)nextPoint

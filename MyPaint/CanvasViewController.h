@@ -3,7 +3,7 @@
 #import "Painting.h"
 
 
-@interface CanvasViewController : UIViewController <CanvasViewDatasource>
+@interface CanvasViewController : UIViewController <CanvasViewDatasource, PaintingDelegate>
 
 @property (strong, nonatomic) CanvasView *view;
 

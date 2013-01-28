@@ -10,11 +10,15 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *pencilButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *rollerButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *eraserButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *undoButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *redoButton;
 
 - (IBAction)colorButtonTapped:(UIBarButtonItem *)button;
-- (IBAction)pencilButtonTapped:(id)sender;
-- (IBAction)rollerButtonTapped:(id)sender;
-- (IBAction)eraserButtonTapped:(id)sender;
-- (IBAction)trashButtonTapped:(id)sender;
+- (IBAction)pencilButtonTapped:(UIBarButtonItem *)sender;
+- (IBAction)rollerButtonTapped:(UIBarButtonItem *)sender;
+- (IBAction)eraserButtonTapped:(UIBarButtonItem *)sender;
+- (IBAction)trashButtonTapped:(UIBarButtonItem *)sender;
+- (IBAction)undoButtonTapped:(UIBarButtonItem *)sender;
+- (IBAction)redoButtonTapped:(UIBarButtonItem *)sender;
 
 @end
