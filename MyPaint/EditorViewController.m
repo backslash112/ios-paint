@@ -4,14 +4,15 @@
 
 @interface EditorViewController ()
 
-@property (strong, nonatomic) CanvasViewController *canvasViewController;
 @property (strong, nonatomic) UIPopoverController *colorPickerPopupController;
-@property (strong, nonatomic) UIColor *color;
 
 @end
 
 
-@implementation EditorViewController
+@implementation EditorViewController {
+  CanvasViewController *_canvasViewController;
+  UIColor *_color;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,10 +28,10 @@
 {
   [super viewDidLoad];
 
-  self.canvasViewController = [[CanvasViewController alloc] initWithNibName:nil bundle:nil];
-  [self addChildViewController:self.canvasViewController];
-  [self.view insertSubview:self.canvasViewController.view belowSubview:self.toolbar];
-  self.canvasViewController.view.frame = self.view.frame;
+  _canvasViewController = [[CanvasViewController alloc] initWithNibName:nil bundle:nil];
+  [self addChildViewController:_canvasViewController];
+  [self.view insertSubview:_canvasViewController.view belowSubview:self.toolbar];
+  _canvasViewController.view.frame = self.view.frame;
 
   [self selectPen];
 }
@@ -90,22 +91,22 @@
 - (void)selectPen
 {
   [self highlightToolButton:self.pencilButton];
-  self.canvasViewController.strokeColor = self.color;
-  self.canvasViewController.strokeWidth = 1;
+  _canvasViewController.strokeColor = _color;
+  _canvasViewController.strokeWidth = 1;
 }
 
 - (void)selectRoller
 {
   [self highlightToolButton:self.rollerButton];
-  self.canvasViewController.strokeColor = self.color;
-  self.canvasViewController.strokeWidth = 10;
+  _canvasViewController.strokeColor = _color;
+  _canvasViewController.strokeWidth = 10;
 }
 
 - (void)selectEraser
 {
   [self highlightToolButton:self.eraserButton];
-  self.canvasViewController.strokeColor = [UIColor whiteColor];
-  self.canvasViewController.strokeWidth = 20;
+  _canvasViewController.strokeColor = [UIColor whiteColor];
+  _canvasViewController.strokeWidth = 20;
 }
 
 - (void)highlightToolButton:(UIBarButtonItem *)buttonToHighlight
@@ -140,8 +141,8 @@
   enum { kNoButtonIndex, kYesButtonIndex };
 
   if (buttonIndex == kYesButtonIndex) {
-    self.canvasViewController.painting = [[Painting alloc] init];
-    [self.canvasViewController.view reloadData];
+    _canvasViewController.painting = [[Painting alloc] init];
+    [_canvasViewController.view reloadData];
   }
 }
 
@@ -149,8 +150,8 @@
 
 - (void)colorPickerDidChangeColor:(ColorPicker *)colorPicker
 {
-  self.canvasViewController.strokeColor = colorPicker.color;
-  self.color = colorPicker.color;
+  _canvasViewController.strokeColor = colorPicker.color;
+  _color = colorPicker.color;
   self.colorButton.tintColor = colorPicker.color;
 }
 
