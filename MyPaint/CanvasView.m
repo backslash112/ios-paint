@@ -13,6 +13,16 @@
   return self;
 }
 
+- (void)reloadData
+{
+
+}
+
+- (void)insertShape:(Shape *)shape atIndex:(NSInteger)index
+{
+  
+}
+
 #pragma mark - Drawing routines
 
 - (void)drawRect:(CGRect)rect

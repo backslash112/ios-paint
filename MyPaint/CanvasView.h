@@ -9,10 +9,6 @@
 
 @interface CanvasView : UIView
 
-@property (weak, nonatomic) Painting *painting __attribute__ ((deprecated));
-@property (strong, nonatomic) Stroke *activeStroke __attribute__ ((deprecated));
-
-
 @property (weak, nonatomic) id <CanvasViewDatasource> datasource;
 
 - (void)reloadData;

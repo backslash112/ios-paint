@@ -29,10 +29,14 @@
 
 #pragma mark - Properties
 
-- (void)setPainting:(Painting *)painting
+- (Stroke *)activeStroke
 {
-  _painting = painting;
-  self.view.painting = painting;
+  return [self.painting.strokes lastObject];
+}
+
+- (void)setActiveStroke:(Stroke *)stroke
+{
+  [self.painting addStroke:stroke];
 }
 
 #pragma mark - CanvasViewDatasource
@@ -84,96 +88,19 @@
   newStroke.width = self.strokeWidth;
   [newStroke.points addObject:[NSValue valueWithCGPoint:startPoint]];
 
-  self.view.activeStroke = newStroke;
+  [self setActiveStroke:newStroke];
 }
 
 - (void)continueStrokeWithNextPoint:(CGPoint)nextPoint
 {
-  if ([self shouldSplitActiveStroke]) {
-    [self splitActiveStrokeOnPoint:nextPoint];
-  } else {
-    [self.view.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
-  }
-  
+  [self.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
   [self.view setNeedsDisplay];
 }
 
 - (void)endStrokeWithPoint:(CGPoint)endPoint
 {
-  [self.view.activeStroke.points addObject:[NSValue valueWithCGPoint:endPoint]];
-  [self moveActiveStrokeToPainting];
-
-  if ([self shouldPrerender]) {
-    [self prerender];
-  }
-
+  [self.activeStroke.points addObject:[NSValue valueWithCGPoint:endPoint]];
   [self.view setNeedsDisplay];
-}
-
-- (void)moveActiveStrokeToPainting
-{
-  if (self.view.activeStroke) {
-    [self.painting addStroke:self.view.activeStroke];
-    self.view.activeStroke = nil;
-  }
-}
-
-- (BOOL)shouldSplitActiveStroke
-{
-  return [self.view.activeStroke.points count] >= [self minPointsInStrokeCountToSplit];
-}
-
-- (void)splitActiveStrokeOnPoint:(CGPoint)point
-{
-  [self endStrokeWithPoint:point];
-  [self createStrokeWithStartPoint:point];
-}
-
-#pragma mark - Painting prerendering
-
-- (NSInteger)undoableStrokesCount
-{
-  return 0; // Undo is disabled for now
-}
-
-- (NSInteger)minStrokesCountToPrerenderInOnePass
-{
-  return 10;
-}
-
-- (NSInteger)minPointsInStrokeCountToSplit
-{
-  return 10;
-}
-
-- (BOOL)shouldPrerender
-{
-  return [self.painting.strokes count] - [self undoableStrokesCount] >= [self minStrokesCountToPrerenderInOnePass];
-}
-
-- (void)prerender
-{
-  UIGraphicsBeginImageContext(self.view.frame.size);
-
-  [self fixContextOrientation];
-
-  NSInteger strokesToPrerenderCount = [self.painting.strokes count] - [self undoableStrokesCount];
-  
-  [PaintingRenderer drawPainting:self.painting count:strokesToPrerenderCount];
-
-  UIImage *prerenderedImage = UIGraphicsGetImageFromCurrentImageContext();
-  UIGraphicsEndImageContext();
-
-  self.painting.prerenderedImage = prerenderedImage;
-  [self.painting removeFirstStrokesCount:strokesToPrerenderCount];
-}
-
-- (void)fixContextOrientation
-{
-  CGContextRef context = UIGraphicsGetCurrentContext();
-
-  CGContextTranslateCTM(context, 0, self.view.frame.size.height);
-  CGContextScaleCTM(context, 1.0, -1.0);
 }
 
 @end
