@@ -32,7 +32,6 @@
 		DA7ADABB16B1358E007CBD5D /* recycle-bin.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADAB616B1358E007CBD5D /* recycle-bin.png */; };
 		DA7ADABD16B135EC007CBD5D /* eraser.png in Resources */ = {isa = PBXBuildFile; fileRef = DA7ADABC16B135EC007CBD5D /* eraser.png */; };
 		DA7ADAC016B150CC007CBD5D /* Painting.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADABF16B150CC007CBD5D /* Painting.m */; };
-		DA7ADAC316B15D08007CBD5D /* PaintingRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */; };
 		DAC303E716B24DEA0073C760 /* Icon~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC303E616B24DEA0073C760 /* Icon~ipad.png */; };
 		DAC303E916B24DED0073C760 /* Icon@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */; };
 /* End PBXBuildFile section */
@@ -75,8 +74,6 @@
 		DA7ADABC16B135EC007CBD5D /* eraser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eraser.png; sourceTree = "<group>"; };
 		DA7ADABE16B150CC007CBD5D /* Painting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Painting.h; sourceTree = "<group>"; };
 		DA7ADABF16B150CC007CBD5D /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
-		DA7ADAC116B15D08007CBD5D /* PaintingRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaintingRenderer.h; sourceTree = "<group>"; };
-		DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaintingRenderer.m; sourceTree = "<group>"; };
 		DAC303E616B24DEA0073C760 /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~ipad.png"; sourceTree = "<group>"; };
 		DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x~ipad.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +133,7 @@
 		DA7ADA5F16AFB510007CBD5D /* MyPaint */ = {
 			isa = PBXGroup;
 			children = (
+				DADB830216B65CFB0095A560 /* Models */,
 				DA50DCB216B556320079E500 /* Shapes */,
 				DA7ADA8916AFF383007CBD5D /* Resources */,
 				DA7ADA6016AFB510007CBD5D /* Supporting Files */,
@@ -152,10 +150,6 @@
 				DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */,
 				DA7ADAAF16B10C3D007CBD5D /* ColorPicker.h */,
 				DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */,
-				DA7ADABE16B150CC007CBD5D /* Painting.h */,
-				DA7ADABF16B150CC007CBD5D /* Painting.m */,
-				DA7ADAC116B15D08007CBD5D /* PaintingRenderer.h */,
-				DA7ADAC216B15D08007CBD5D /* PaintingRenderer.m */,
 			);
 			path = MyPaint;
 			sourceTree = "<group>";
@@ -188,6 +182,15 @@
 				DA7ADABC16B135EC007CBD5D /* eraser.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DADB830216B65CFB0095A560 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA7ADABE16B150CC007CBD5D /* Painting.h */,
+				DA7ADABF16B150CC007CBD5D /* Painting.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,7 +276,6 @@
 				DA7ADA8716AFE0B3007CBD5D /* EditorViewController.m in Sources */,
 				DA7ADAB116B10C3D007CBD5D /* ColorPicker.m in Sources */,
 				DA7ADAC016B150CC007CBD5D /* Painting.m in Sources */,
-				DA7ADAC316B15D08007CBD5D /* PaintingRenderer.m in Sources */,
 				DA50DCB116B554E30079E500 /* Shape.m in Sources */,
 				DA50DCB516B556970079E500 /* StrokeShape.m in Sources */,
 			);

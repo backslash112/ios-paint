@@ -1,33 +1,48 @@
 #import "Painting.h"
 
 
-@interface Painting()
-
-@property (strong, nonatomic) NSMutableArray *strokes;
-
-@end
-
-
-@implementation Painting
+@implementation Painting {
+  NSMutableArray *_strokes;
+}
 
 - (id)init
 {
   self = [super init];
   if (self) {
-    self.strokes = [[NSMutableArray alloc] init];
+    _strokes = [[NSMutableArray alloc] init];
   }
 
   return self;
 }
 
-- (void)addStroke:(Stroke *)stroke
+- (NSInteger)numberOfStrokes
 {
-  [self.strokes addObject:stroke];
+  return [_strokes count];
 }
 
-- (void)removeFirstStrokesCount:(NSInteger)count
+- (void)addStroke:(Stroke *)stroke
 {
-  [self.strokes removeObjectsInRange:NSMakeRange(0, count)];
+  [_strokes addObject:stroke];
+}
+
+- (void)insertStroke:(Stroke *)stroke atIndex:(NSInteger)index
+{
+  [_strokes insertObject:stroke atIndex:index];
+}
+
+- (void)removeStrokeAtIndex:(NSInteger)index
+{
+  [_strokes removeObjectAtIndex:index];
+}
+
+- (Stroke *)strokeAtIndex:(NSInteger)index
+{
+  return _strokes[index];
+}
+
+- (Stroke *)lastStroke
+{
+  return [_strokes lastObject];
 }
 
 @end

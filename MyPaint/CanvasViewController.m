@@ -1,6 +1,5 @@
 #import "CanvasViewController.h"
 #import "Stroke.h"
-#import "PaintingRenderer.h"
 #import "StrokeShape.h"
 
 
@@ -31,7 +30,7 @@
 
 - (Stroke *)activeStroke
 {
-  return [self.painting.strokes lastObject];
+  return [self.painting lastStroke];
 }
 
 - (void)setActiveStroke:(Stroke *)stroke
@@ -43,12 +42,12 @@
 
 - (NSInteger)numberOfShapesInCanvasView:(CanvasView *)canvasView
 {
-  return [self.painting.strokes count];
+  return self.painting.numberOfStrokes;
 }
 
 - (Shape *)canvasView:(CanvasView *)canvasView shapeAtIndex:(NSInteger)index
 {
-  Stroke *stroke = self.painting.strokes[index];
+  Stroke *stroke = [self.painting strokeAtIndex:index];
   return [[StrokeShape alloc] initWithStroke:stroke];
 }
 
@@ -90,19 +89,19 @@
 
   [self setActiveStroke:newStroke];
 
-  [self.view didInsertShapeAtIndex:[self.painting.strokes count] - 1];
+  [self.view didInsertShapeAtIndex:self.painting.numberOfStrokes - 1];
 }
 
 - (void)continueStrokeWithNextPoint:(CGPoint)nextPoint
 {
   [self.activeStroke.points addObject:[NSValue valueWithCGPoint:nextPoint]];
-  [self.view didChangeShapeAtIndex:[self.painting.strokes count] - 1];
+  [self.view didChangeShapeAtIndex:self.painting.numberOfStrokes - 1];
 }
 
 - (void)endStrokeWithPoint:(CGPoint)endPoint
 {
   [self.activeStroke.points addObject:[NSValue valueWithCGPoint:endPoint]];
-  [self.view didChangeShapeAtIndex:[self.painting.strokes count] - 1];
+  [self.view didChangeShapeAtIndex:self.painting.numberOfStrokes - 1];
 }
 
 @end

@@ -1,5 +1,4 @@
 #import "CanvasView.h"
-#import "PaintingRenderer.h"
 
 
 @implementation CanvasView {

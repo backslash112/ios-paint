@@ -2,19 +2,18 @@
 #import "Stroke.h"
 
 
+// Painting is a document, containing strokes.
+//
 @interface Painting : NSObject
 
-@property (strong, nonatomic) UIImage *prerenderedImage;
-
+@property (assign, readonly, nonatomic) NSInteger numberOfStrokes;
 
 - (void)addStroke:(Stroke *)stroke;
-- (void)removeFirstStrokesCount:(NSInteger)count;
+- (void)insertStroke:(Stroke *)stroke atIndex:(NSInteger)index;
 
-@end
+- (void)removeStrokeAtIndex:(NSInteger)index;
 
-
-@interface Painting(collections)
-
-@property (readonly, nonatomic) NSArray *strokes;
+- (Stroke *)strokeAtIndex:(NSInteger)index;
+- (Stroke *)lastStroke;
 
 @end
