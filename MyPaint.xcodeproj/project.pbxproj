@@ -133,21 +133,11 @@
 		DA7ADA5F16AFB510007CBD5D /* MyPaint */ = {
 			isa = PBXGroup;
 			children = (
-				DADB830216B65CFB0095A560 /* Models */,
-				DA50DCB216B556320079E500 /* Shapes */,
+				DAD4F74B16B7BFBF00FC85A9 /* Editor */,
 				DA7ADA8916AFF383007CBD5D /* Resources */,
 				DA7ADA6016AFB510007CBD5D /* Supporting Files */,
 				DA7ADA6816AFB510007CBD5D /* AppDelegate.h */,
 				DA7ADA6916AFB510007CBD5D /* AppDelegate.m */,
-				DA7ADA7C16AFC7A1007CBD5D /* CanvasViewController.h */,
-				DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */,
-				DA7ADA7616AFB7B0007CBD5D /* CanvasView.h */,
-				DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */,
-				DA7ADA8416AFE0B3007CBD5D /* EditorViewController.h */,
-				DA7ADA8516AFE0B3007CBD5D /* EditorViewController.m */,
-				DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */,
-				DA7ADAAF16B10C3D007CBD5D /* ColorPicker.h */,
-				DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */,
 			);
 			path = MyPaint;
 			sourceTree = "<group>";
@@ -180,6 +170,24 @@
 				DA7ADABC16B135EC007CBD5D /* eraser.png */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DAD4F74B16B7BFBF00FC85A9 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				DADB830216B65CFB0095A560 /* Models */,
+				DA50DCB216B556320079E500 /* Shapes */,
+				DA7ADA7C16AFC7A1007CBD5D /* CanvasViewController.h */,
+				DA7ADA7D16AFC7A1007CBD5D /* CanvasViewController.m */,
+				DA7ADA7616AFB7B0007CBD5D /* CanvasView.h */,
+				DA7ADA7716AFB7B0007CBD5D /* CanvasView.m */,
+				DA7ADA8416AFE0B3007CBD5D /* EditorViewController.h */,
+				DA7ADA8516AFE0B3007CBD5D /* EditorViewController.m */,
+				DA7ADA8616AFE0B3007CBD5D /* EditorViewController.xib */,
+				DA7ADAAF16B10C3D007CBD5D /* ColorPicker.h */,
+				DA7ADAB016B10C3D007CBD5D /* ColorPicker.m */,
+			);
+			name = Editor;
 			sourceTree = "<group>";
 		};
 		DADB830216B65CFB0095A560 /* Models */ = {

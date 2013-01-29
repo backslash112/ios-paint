@@ -42,7 +42,6 @@
 						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{0, 960}, {768, 44}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
@@ -105,14 +104,6 @@
 								<object class="NSCustomResource" key="IBUIImage">
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">arrow-small-18.png</string>
-								</object>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<reference key="IBUIToolbar" ref="15258895"/>
-							</object>
-							<object class="IBUIBarButtonItem" id="1058328714">
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">recycle-bin.png</string>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<reference key="IBUIToolbar" ref="15258895"/>
@@ -234,14 +225,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">trashButtonTapped:</string>
-						<reference key="source" ref="1058328714"/>
-						<reference key="destination" ref="841351856"/>
-					</object>
-					<int key="connectionID">45</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">undoButtonTapped:</string>
 						<reference key="source" ref="661388829"/>
 						<reference key="destination" ref="841351856"/>
@@ -342,7 +325,6 @@
 							<reference ref="1001351280"/>
 							<reference ref="932497900"/>
 							<reference ref="397655149"/>
-							<reference ref="1058328714"/>
 							<reference ref="661388829"/>
 							<reference ref="986292952"/>
 						</array>
@@ -394,11 +376,6 @@
 						<reference key="parent" ref="15258895"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">30</int>
-						<reference key="object" ref="1058328714"/>
-						<reference key="parent" ref="15258895"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">35</int>
 						<reference key="object" ref="661388829"/>
 						<reference key="parent" ref="15258895"/>
@@ -426,7 +403,6 @@
 					<reference ref="892286041"/>
 					<reference ref="107402618"/>
 				</array>
-				<string key="30.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="35.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -453,7 +429,6 @@
 			<string key="eraser.png">{30, 30}</string>
 			<string key="paint-roller.png">{30, 30}</string>
 			<string key="pencil.png">{30, 30}</string>
-			<string key="recycle-bin.png">{30, 30}</string>
 		</dictionary>
 		<bool key="IBDocument.UseAutolayout">YES</bool>
 		<string key="IBCocoaTouchPluginVersion">1929</string>

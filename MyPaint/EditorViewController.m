@@ -43,6 +43,18 @@
 
   [self selectPen];
   [self activateUndoRedoButtons];
+
+  UIImage *trashImage = [UIImage imageNamed:@"recycle-bin.png"];
+  UIBarButtonItem *trashButton = [[UIBarButtonItem alloc] initWithImage:trashImage
+                                                                  style:UIBarButtonItemStylePlain
+                                                                 target:self
+                                                                 action:@selector(trashButtonTapped:)];
+  // Remove border.
+  [trashButton setBackgroundImage:[UIImage new]
+                         forState:UIControlStateNormal
+                       barMetrics:UIBarMetricsDefault];
+
+  self.navigationItem.rightBarButtonItem = trashButton;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration

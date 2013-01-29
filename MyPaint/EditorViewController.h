@@ -16,7 +16,6 @@
 - (IBAction)pencilButtonTapped:(UIBarButtonItem *)sender;
 - (IBAction)rollerButtonTapped:(UIBarButtonItem *)sender;
 - (IBAction)eraserButtonTapped:(UIBarButtonItem *)sender;
-- (IBAction)trashButtonTapped:(UIBarButtonItem *)sender;
 - (IBAction)undoButtonTapped:(UIBarButtonItem *)sender;
 - (IBAction)redoButtonTapped:(UIBarButtonItem *)sender;
 

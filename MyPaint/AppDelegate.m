@@ -10,9 +10,12 @@
   
   self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
-  EditorViewController *cvc = [[EditorViewController alloc] init];
-
-  [self.window setRootViewController:cvc];
+  EditorViewController *editorViewController = [[EditorViewController alloc] init];
+  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:editorViewController];
+  navigationController.navigationBar.translucent = YES;
+  navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+  
+  [self.window setRootViewController:navigationController];
   [self.window makeKeyAndVisible];
   
   return YES;
