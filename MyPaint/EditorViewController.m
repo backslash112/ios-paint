@@ -1,4 +1,7 @@
 #import "EditorViewController.h"
+
+#import <math.h>
+
 #import "CanvasViewController.h"
 
 
@@ -42,10 +45,45 @@
   [self activateUndoRedoButtons];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+  [self rotateCanvasViewAccordingToDeviceOrientation];
+  [self resizeCanvasViewAccordingToDeviceOrientation];
+}
+
+- (void)rotateCanvasViewAccordingToDeviceOrientation
+{
+  _canvasViewController.view.transform = CGAffineTransformRotate(CGAffineTransformIdentity, [self radiansDeviceIsRotated]);
+}
+
+- (CGFloat)radiansDeviceIsRotated
+{
+  UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+
+  switch (orientation) {
+    case UIDeviceOrientationLandscapeLeft:
+      return -M_PI_2;
+
+    case UIDeviceOrientationPortraitUpsideDown:
+      return M_PI;
+
+    case UIDeviceOrientationLandscapeRight:
+      return M_PI_2;
+
+    default:
+      return 0.0f;
+  }
+}
+
+- (void)resizeCanvasViewAccordingToDeviceOrientation
+{
+  UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+
+  if (UIDeviceOrientationIsLandscape(orientation)) {
+    _canvasViewController.view.frame = CGRectMake(0.0f, 0.0f, 1024.0f, 768.0f);
+  } else {
+    _canvasViewController.view.frame = CGRectMake(0.0f, 0.0f, 768.0f, 1024.0f);
+  }
 }
 
 #pragma mark - Actions

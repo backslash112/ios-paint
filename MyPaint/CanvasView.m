@@ -83,7 +83,7 @@
 
   UIGraphicsBeginImageContext(self.frame.size);
 
-  [self fixContextOrientation];
+  [self flipContextUpsideDown];
 
   [self drawPrerenderedShapesImage];
   
@@ -112,7 +112,7 @@
   }
 }
 
-- (void)fixContextOrientation
+- (void)flipContextUpsideDown
 {
   CGContextRef context = UIGraphicsGetCurrentContext();
 

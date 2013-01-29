@@ -76,6 +76,7 @@
 		DA7ADABF16B150CC007CBD5D /* Painting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Painting.m; sourceTree = "<group>"; };
 		DAC303E616B24DEA0073C760 /* Icon~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon~ipad.png"; sourceTree = "<group>"; };
 		DAC303E816B24DED0073C760 /* Icon@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x~ipad.png"; sourceTree = "<group>"; };
+		DAD4F74716B79C0400FC85A9 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 		DA7ADA4A16AFB510007CBD5D = {
 			isa = PBXGroup;
 			children = (
+				DAD4F74716B79C0400FC85A9 /* GLKit.framework */,
 				DA7ADA5F16AFB510007CBD5D /* MyPaint */,
 				DA7ADA5816AFB510007CBD5D /* Frameworks */,
 				DA7ADA5616AFB510007CBD5D /* Products */,
