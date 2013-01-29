@@ -1,6 +1,9 @@
 #import "CanvasView.h"
 
 
+#define PRERENDERING_ENABLED 1
+
+
 @implementation CanvasView {
   UIImage *_prerenderedShapesImage;
   NSInteger _numberOfPrerenderedShapes;
@@ -31,7 +34,7 @@
   if (shouldPrerenderFromScratch) {
     [self dropPrerenderedShapesImage];
   }
-
+  
   [self setNeedsDisplay];
 }
 
@@ -52,8 +55,10 @@
 - (void)drawRect:(CGRect)rect
 {
   if (self.datasource) {
+#if PRERENDERING_ENABLED
     [self prerenderIfNeeded];
     [self drawPrerenderedShapesImage];
+#endif
     [self drawShapes];
   }
 }
@@ -81,8 +86,8 @@
   NSInteger indexOfFirstShapeToPrerender = _numberOfPrerenderedShapes;
   NSInteger indexOfLastShapeToPrerender = indexOfFirstShapeToPrerender + [self numberOfShapesToPrerender] - 1;
 
-  UIGraphicsBeginImageContext(self.frame.size);
-
+  UIGraphicsBeginImageContext(CGSizeMake(768.0f, 1024.0f));
+  
   [self flipContextUpsideDown];
 
   [self drawPrerenderedShapesImage];
@@ -116,8 +121,14 @@
 {
   CGContextRef context = UIGraphicsGetCurrentContext();
 
-  CGContextTranslateCTM(context, 0, self.frame.size.height);
+  CGContextTranslateCTM(context, 0, 1024.0f);
   CGContextScaleCTM(context, 1.0, -1.0);
+}
+
+- (void)dropPrerenderedShapesImage
+{
+  _prerenderedShapesImage = nil;
+  _numberOfPrerenderedShapes = 0;
 }
 
 - (void)drawShapes
@@ -128,12 +139,6 @@
   for (int i = indexOfFirstShapeToDraw; i < numberOfShapes; i++) {
     [[self shapeAtIndex:i] drawWithCurrentContext];
   }
-}
-
-- (void)dropPrerenderedShapesImage
-{
-  _prerenderedShapesImage = nil;
-  _numberOfPrerenderedShapes = 0;
 }
 
 #pragma mark - Helpers

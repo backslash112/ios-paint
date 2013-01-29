@@ -56,6 +56,8 @@
   
   [self rotateCanvasViewAccordingToDeviceOrientation];
   [self resizeCanvasViewAccordingToDeviceOrientation];
+
+  [_canvasViewController.view reloadData];
 }
 
 - (void)rotateCanvasViewAccordingToDeviceOrientation
