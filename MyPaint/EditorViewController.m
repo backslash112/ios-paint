@@ -45,8 +45,15 @@
   [self activateUndoRedoButtons];
 }
 
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+  [UIView setAnimationsEnabled:NO];
+}
+
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
+  [UIView setAnimationsEnabled:YES];
+  
   [self rotateCanvasViewAccordingToDeviceOrientation];
   [self resizeCanvasViewAccordingToDeviceOrientation];
 }
