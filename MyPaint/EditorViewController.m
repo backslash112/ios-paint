@@ -28,11 +28,15 @@
 
 - (void)viewDidLoad
 {
+  UIView *canvasView = _canvasViewController.view;
+  
   [super viewDidLoad];
-
+  
   [self addChildViewController:_canvasViewController];
-  [self.view insertSubview:_canvasViewController.view belowSubview:self.toolbar];
-  _canvasViewController.view.frame = self.view.frame;
+  [self.view insertSubview:canvasView belowSubview:self.toolbar];
+  
+  canvasView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  canvasView.frame = self.view.frame;
 
   [self selectPen];
   [self activateUndoRedoButtons];
