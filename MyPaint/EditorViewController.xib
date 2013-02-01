@@ -432,7 +432,6 @@
 						<string key="pencilButtonTapped:">UIBarButtonItem</string>
 						<string key="redoButtonTapped:">UIBarButtonItem</string>
 						<string key="rollerButtonTapped:">UIBarButtonItem</string>
-						<string key="trashButtonTapped:">UIBarButtonItem</string>
 						<string key="undoButtonTapped:">UIBarButtonItem</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -454,10 +453,6 @@
 						</object>
 						<object class="IBActionInfo" key="rollerButtonTapped:">
 							<string key="name">rollerButtonTapped:</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-						<object class="IBActionInfo" key="trashButtonTapped:">
-							<string key="name">trashButtonTapped:</string>
 							<string key="candidateClassName">UIBarButtonItem</string>
 						</object>
 						<object class="IBActionInfo" key="undoButtonTapped:">
