@@ -49,7 +49,7 @@
                                                                   style:UIBarButtonItemStylePlain
                                                                  target:self
                                                                  action:@selector(trashButtonTapped:)];
-  // Remove border.
+  // Remove button border.
   [trashButton setBackgroundImage:[UIImage new]
                          forState:UIControlStateNormal
                        barMetrics:UIBarMetricsDefault];
